@@ -1,0 +1,21 @@
+<div class="blogs-container">
+  <h2 class="section-title">Discover inspiration and trends</h2>
+
+  <swiper-container appSwiper init="false" [config]="swiperConfig">
+    @for (blog of blogs; track $index) {
+    <swiper-slide>
+      <app-blog-card [blog]="blog" />
+    </swiper-slide>
+    }
+  </swiper-container>
+
+  <div class="swiper-controllers projects-controllers">
+    <button class="prev-button">
+      <img src="assets/svg-icons/arrow-left.svg" alt="" />
+    </button>
+    <div class="swiper-pagination"></div>
+    <button class="next-button">
+      <img src="assets/svg-icons/arrow-right.svg" alt="" />
+    </button>
+  </div>
+</div>

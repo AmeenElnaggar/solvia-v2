@@ -1,0 +1,17 @@
+@if (records().length ) {
+<p-data-view [value]="records()">
+  <ng-template #list let-records>
+    <div class="grid">
+      @for (data of records; track $index) {
+      <div class="col-12 md:col-6 lg:col-4">
+        <ng-container
+          *ngTemplateOutlet="viewBodyTemplate(); context: { $implicit: data }"
+        ></ng-container>
+      </div>
+      }
+    </div>
+  </ng-template>
+</p-data-view>
+} @else {
+<div class="text-center p-4">No records found</div>
+}

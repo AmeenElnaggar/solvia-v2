@@ -1,0 +1,24 @@
+<div class="featured-container">
+  <div class="heading-section">
+    <h2 class="text-4xl mb-3">Today’s Luxury Listings</h2>
+    <p>Thousands of luxury home enthusiasts just like you visit our website.</p>
+  </div>
+
+  <swiper-container appSwiper init="false" [config]="swiperConfig">
+    @for (unit of units; track $index) {
+    <swiper-slide>
+      <app-unit-card [unit]="unit" />
+    </swiper-slide>
+    }
+  </swiper-container>
+
+  <div class="swiper-controllers projects-controllers">
+    <button class="prev-button">
+      <img src="assets/svg-icons/arrow-left.svg" alt="" />
+    </button>
+    <div class="swiper-pagination"></div>
+    <button class="next-button">
+      <img src="assets/svg-icons/arrow-right.svg" alt="" />
+    </button>
+  </div>
+</div>

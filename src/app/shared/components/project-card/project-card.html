@@ -1,0 +1,40 @@
+@if (project()) {
+<div class="project-card">
+  <a routerLink="/" class="stretched-link" title="{{ project().title }}"></a>
+  <div class="project-card__corner">
+    <div class="project-card__corner-btn">
+      <a class="arrow-btn" routerLink="/" title="More details">
+        <svg width="20" viewBox="0 0 24 24">
+          <path
+            fill="none"
+            stroke="#fff"
+            d="M21 3L3 21M21 3c-.676.676-1.923 1.11-3.039 1.379c-1.49.359-3.036.424-4.559.252c-1.182-.134-2.484-.4-3.009-.924M21 3c-.676.676-1.11 1.923-1.379 3.039c-.359 1.49-.424 3.036-.252 4.559c.134 1.182.4 2.484.924 3.009"
+            stroke-width="1"
+          />
+        </svg>
+      </a>
+    </div>
+    <div class="project-card__corner-background"></div>
+    <div class="project-card__corner-top-left"></div>
+    <div class="project-card__corner-bottom-right"></div>
+  </div>
+  <div class="project-card__thumbnail">
+    <img [src]="project().image" class="project-card__image" [alt]="project().title" />
+  </div>
+
+  <div class="project-card__data-section">
+    <div class="project-card__info">
+      <div>
+        <h3 class="project-card__title line-clamp-1">
+          {{ project().title }}
+        </h3>
+        <div class="project-card__details">
+          <span class="project-card__price">${{ project().price }}</span>
+          <p class="project-card__location">{{ project().location }}</p>
+        </div>
+      </div>
+      <img class="project-card__logo" [src]="'./assets/services/1.jpg'" alt="logo" />
+    </div>
+  </div>
+</div>
+}

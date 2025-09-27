@@ -1,0 +1,271 @@
+.hero-slider {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .img-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.6)
+      );
+      z-index: 1;
+    }
+  }
+
+  .content-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+
+    @media (max-width: 1024px) {
+      padding: 0 40px;
+    }
+
+    @media (max-width: 768px) {
+      padding: 0 20px;
+    }
+  }
+
+  .hero-text-holder {
+    position: relative;
+    max-width: 650px;
+    width: 100%;
+    padding: 60px;
+    background: linear-gradient(145deg, rgba(38, 38, 38, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%),
+      radial-gradient(circle at top left, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    overflow: hidden;
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    // Glassmorphism effect background
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        transparent,
+        rgba(0, 0, 0, 0.1)
+      );
+      pointer-events: none;
+    }
+
+    // When the slide is active
+    &.active {
+      transform: translateX(0);
+      opacity: 1;
+
+      .slide-number {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        transition-delay: 0.2s;
+      }
+
+      .category-badge {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.3s;
+      }
+
+      .slide-heading {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.4s;
+      }
+
+      .divider {
+        width: 80px;
+        transition-delay: 0.5s;
+      }
+
+      .slide-desc {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.6s;
+      }
+
+      .slide-cta {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.7s;
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: 40px 30px;
+      max-width: 100%;
+    }
+  }
+
+  .slide-number {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    font-size: 60px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+    opacity: 0;
+    // padding: 5px;
+    transform: translateY(30px) scale(0.8);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+
+    @media (max-width: 768px) {
+      font-size: 40px;
+      right: 10px;
+      top: 0;
+    }
+  }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+
+    .category-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+      @media (max-width: 768px) {
+        font-size: 10px;
+        padding: 6px 16px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .slide-heading {
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+      @media (max-width: 768px) {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+    }
+
+    .divider {
+      width: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.5) 100%);
+
+      margin-bottom: 25px;
+      border-radius: 2px;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+      @media (max-width: 768px) {
+        margin-bottom: 20px;
+        height: 3px;
+      }
+    }
+
+    .slide-desc {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 35px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  .slide-cta {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    ::ng-deep .custom-btn {
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+      i {
+        transition: transform 0.3s ease;
+      }
+
+      &:hover i {
+        transform: translateX(5px);
+      }
+
+      @media (max-width: 768px) {
+        font-size: 13px;
+      }
+    }
+  }
+}

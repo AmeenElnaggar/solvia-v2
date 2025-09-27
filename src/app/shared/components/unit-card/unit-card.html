@@ -1,0 +1,61 @@
+<div class="unit-card">
+  <div class="unit-card__wrapper">
+    <!-- Status Badges -->
+    <div class="unit-card__badges">
+      @if (unit()?.badges) { @for (badge of unit().badges; track badge) {
+      <span
+        class="unit-card__badge"
+        [class.unit-card__badge--featured]="badge === 'Featured'"
+        [class.unit-card__badge--sale]="badge === 'For Sale'"
+      >
+        {{ badge }}
+      </span>
+      } }
+    </div>
+
+    <!-- Image Section -->
+    <div class="unit-card__image-container">
+      <img [src]="unit()?.image" class="unit-card__image" [alt]="unit()?.title || 'Unit Image'" />
+    </div>
+
+    <!-- Content Section -->
+    <div class="unit-card__content">
+      <!-- Title -->
+      <h3 class="unit-card__title">
+        <a [routerLink]="'/'">{{ unit()?.title }}</a>
+      </h3>
+      <!-- Location -->
+      <div class="unit-card__location">
+        <i class="pi pi-map-marker"></i>
+        <span class="unit-card__location-text">{{ unit()?.location }}</span>
+      </div>
+
+      <!-- Features -->
+      <div class="unit-card__features">
+        <div class="unit-card__feature">
+          <span class="unit-card__feature-value">{{ unit()?.beds }}</span>
+          <span class="unit-card__feature-label">Beds</span>
+        </div>
+        <div class="unit-card__feature">
+          <span class="unit-card__feature-value">{{ unit()?.baths }}</span>
+          <span class="unit-card__feature-label">Baths</span>
+        </div>
+        <div class="unit-card__feature">
+          <span class="unit-card__feature-value">{{ unit()?.sqft }}</span>
+          <span class="unit-card__feature-label">Sqft</span>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <hr class="unit-card__divider" />
+
+      <!-- Footer -->
+      <div class="unit-card__footer">
+        <div class="unit-card__price-section">
+          <span class="unit-card__price">{{ unit()?.price }}</span>
+        </div>
+        <button class="custom-btn">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+button {
+  display: inline-block;
+  border: 0;
+  padding: 0;
+  width: 200px;
+
+  .holder {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: #fff;
+    padding: 14px;
+  }
+}
+
+// .featured-btn {
+//   i {
+//     transform: rotate(-40deg);
+//     transition: transform 0.3s ease;
+//   }
+
+//   &:hover {
+//     i {
+//       transform: rotate(-40deg) translateX(5px);
+//     }
+//   }
+// }

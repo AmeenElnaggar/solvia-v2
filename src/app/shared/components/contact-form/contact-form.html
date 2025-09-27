@@ -1,0 +1,57 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+  <div class="contact-form-title">
+    <h3>Get in touch with us</h3>
+    <i class="pi pi-times close-icon" (click)="closeDialog()"></i>
+  </div>
+  <div class="input-group">
+    <input pInputText formControlName="name" placeholder="Name *" class="input-field" />
+  </div>
+
+  <div class="input-group">
+    <input pInputText formControlName="email" placeholder="Email *" class="input-field" />
+  </div>
+
+  <div class="input-group">
+    <textarea
+      pInputTextarea
+      rows="4"
+      formControlName="message"
+      placeholder="Your Message *"
+      class="input-field"
+    ></textarea>
+  </div>
+
+  <button
+    pButton
+    type="submit"
+    label="Send"
+    class="contact-submit"
+    [disabled]="contactForm.invalid"
+  ></button>
+
+  <div class="contact-info">
+    <div class="info-item">
+      <i class="pi pi-phone"></i>
+      <a href="tel:0106683333">0106683333</a>
+    </div>
+    <div class="info-item">
+      <i class="pi pi-envelope"></i>
+      <a href="mailto:info@solviadevelopments.com">info@solviadevelopments.com</a>
+    </div>
+  </div>
+
+  <div class="social-section">
+    <h3 class="social-title">Follow us</h3>
+    <div class="social-buttons">
+      <a href="#" class="social-btn">
+        <i class="pi pi-facebook"></i>
+      </a>
+      <a href="#" class="social-btn">
+        <i class="pi pi-instagram"></i>
+      </a>
+      <a href="#" class="social-btn">
+        <i class="pi pi-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</form>

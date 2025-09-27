@@ -1,0 +1,52 @@
+<div class="filter-box">
+  <ng-content select="[home-page]"></ng-content>
+  <form [formGroup]="filterForm" class="filter-form">
+    <div class="filters-row">
+      <!-- Area Select -->
+      <div class="filter-input">
+        <p-select
+          formControlName="area"
+          [options]="areas"
+          placeholder="Select Area"
+          class="w-full"
+        />
+      </div>
+
+      <!-- Type Select -->
+      <div class="filter-input">
+        <p-select
+          formControlName="type"
+          [options]="types"
+          placeholder="Select Type"
+          class="w-full"
+        />
+      </div>
+
+      <!-- Bedrooms Select -->
+      <div class="filter-input">
+        <p-select
+          formControlName="bedrooms"
+          [options]="bedrooms"
+          placeholder="Bedrooms"
+          class="w-full"
+        />
+      </div>
+
+      <!-- Filters Actions -->
+      <div class="filter-actions">
+        <!-- <button
+          type="button"
+          class="button advanced-btn custom-btn"
+          (click)="openAdvancedFilters()"
+        >
+          Advanced
+          <i class="pi pi-sliders-h"></i>
+        </button> -->
+        <button type="submit" class="button search-btn" (click)="search()">
+          <i class="pi pi-search"></i>
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

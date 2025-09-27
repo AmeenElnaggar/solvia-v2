@@ -1,0 +1,84 @@
+<header appScrollDirection class="main-header">
+  <nav class="nav container xl">
+    <ng-container *ngTemplateOutlet="logo"></ng-container>
+
+    <!-- Navbar for large screens -->
+    @if (isLgScreen()) {
+    <div class="ml-auto">
+      <ng-container *ngTemplateOutlet="navList; context: { isSidenav: false }"></ng-container>
+    </div>
+    }
+
+    <!-- Contact Section -->
+    <div class="flex align-items-center justify-content-center ml-auto">
+      @if (isMdScreen()) {
+      <a href="tel:0106683333" class="phone-link p-3 flex align-items-center gap-1 font-semibold">
+        <i class="pi pi-phone ring-animation"></i>
+        0106683333
+      </a>
+      }
+
+      <button class="contact-btn" (click)="openContactDialog()">
+        <span class="btn-label">Get In Touch</span>
+      </button>
+    </div>
+
+    <!-- Menu icon for small screens -->
+    @if (!isLgScreen()) {
+    <button id="menu-icon" class="menu-icon" (click)="onMenuIconClick()">
+      <span class="menu-icon__line menu-icon__line-left"></span>
+      <span class="menu-icon__line"></span>
+      <span class="menu-icon__line menu-icon__line-right"></span>
+    </button>
+    }
+  </nav>
+</header>
+
+<!-- Sidenav for small screens -->
+@if (!isLgScreen() && isSidenavOpen()) {
+<p-drawer
+  [(visible)]="isSidenavOpen"
+  position="full"
+  styleClass="drawer-nav"
+  [modal]="true"
+  [dismissible]="false"
+  [closable]="false"
+  [transitionOptions]="'400ms ease-in-out'"
+>
+  <ng-template pTemplate="header">
+    <div class="drawer-header">
+      <img src="assets/logo-org.svg" alt="Logo" class="drawer-logo" />
+      <button class="close-btn" (click)="onHideSidenav()">
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+  </ng-template>
+
+  <ng-container *ngTemplateOutlet="navList; context: { isSidenav: true }" />
+</p-drawer>
+}
+<ng-template #logo>
+  <a routerLink="/" class="flex-shrink-0 font-size-0">
+    <img class="logo" src="assets/logo-org.svg" />
+  </a>
+</ng-template>
+
+<ng-template #navList let-isSidenav="isSidenav">
+  <ul class="nav__list list-none p-0 m-0" [class.flex-column]="isSidenav">
+    @for(item of items(); track $index) {
+    <li class="nav__item">
+      <a
+        class="nav__link"
+        [class.block]="isSidenav"
+        [class.inline-block]="!isSidenav"
+        [routerLink]="item.url"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="isSidenav ? onMenuIconClick() : null"
+      >
+        <span>{{ item.label }}</span>
+      </a>
+    </li>
+    }
+  </ul>
+</ng-template>

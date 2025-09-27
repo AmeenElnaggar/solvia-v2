@@ -1,0 +1,131 @@
+<footer class="main-footer">
+  <div class="container lg">
+    <div class="footer-top">
+      <div class="grid py-5">
+        <!-- Left Side -->
+        <div class="col-12 md:col-6 lg:col-4">
+          <a routerLink="/home" class="mb-3 inline-block">
+            <img class="block w-10rem" src="assets/logo-org.svg" alt="Solvia Developments Logo" />
+          </a>
+
+          <!-- Address -->
+          <div class="mb-4">
+            <span class="contact-label">Our Address: </span>
+            <span>Park St. West, El Shikh Zaid, Egypt</span>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-4">
+            <span class="contact-label">Support 24/7: </span>
+            <span>0106683333</span>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-4">
+            <span class="contact-label">Email Address: </span>
+            <a href="mailto:info@solviadevelopments.com">info@solviadevelopments.com</a>
+          </div>
+        </div>
+
+        <!-- Middle Side -->
+        <div class="col-12 md:col-6 lg:col-4">
+          <div class="footer-content">
+            <div class="footer-col-block company">
+              <div class="text-title" (click)="toggleCompany()">
+                Our Company
+                <i class="pi toggle-icon" [class]="companyExpanded() ? 'pi-minus' : 'pi-plus'"></i>
+              </div>
+              <div class="collapsible-content" [class.expanded]="companyExpanded()">
+                <ul class="list-none p-0 m-0">
+                  @for (link of companyLinks; track $index) {
+                  <li class="line-height-4">
+                    <a class="footer-link" [routerLink]="link.route">{{ link.label }}</a>
+                  </li>
+                  }
+                </ul>
+              </div>
+            </div>
+
+            <div class="footer-col-block quick">
+              <div class="text-title" (click)="toggleQuickLinks()">
+                Quick Links
+                <i
+                  class="pi toggle-icon"
+                  [class]="quickLinksExpanded() ? 'pi-minus' : 'pi-plus'"
+                ></i>
+              </div>
+              <div class="collapsible-content" [class.expanded]="quickLinksExpanded()">
+                <ul class="list-none p-0 m-0">
+                  @for (link of quickLinks; track $index) {
+                  <li class="line-height-4">
+                    <a class="footer-link" [routerLink]="link.route">{{ link.label }}</a>
+                  </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="col-12 md:col-6 lg:col-4">
+          <div class="footer-newsletter">
+            <div class="text-title">Join Our Newsletter</div>
+            <p>Sign up for updates on our latest news.</p>
+
+            <div class="newsletter-form">
+              <div class="p-inputgroup">
+                <input
+                  type="email"
+                  pInputText
+                  [(ngModel)]="email"
+                  placeholder="E-mail"
+                  class="newsletter-input"
+                />
+                <button
+                  pButton
+                  type="button"
+                  icon="pi pi-arrow-right"
+                  class="newsletter-button"
+                  (click)="onSubscribe()"
+                  [rounded]="true"
+                ></button>
+              </div>
+            </div>
+            <p>
+              By clicking subscribe, you agree to the
+              <a class="terms-link" routerLink="">Terms of Service</a>
+              and
+              <a class="terms-link" routerLink="">Privacy Policy.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="grid">
+        <div class="col-12 md:col-6">
+          <p>
+            © Copyright {{ currentYear() }} . All Rights Reserved. To
+            <a href="https://www.8worx.com" target="_blank" class="company-name">8WORX</a>
+          </p>
+        </div>
+        <div class="col-12 md:col-6 md:text-right">
+          <div class="social-buttons">
+            @for (social of socialLinks; track social.url) {
+            <a
+              [href]="social.url"
+              target="_blank"
+              class="social-btn"
+              [attr.aria-label]="social.label"
+            >
+              <i [class]="social.icon"></i>
+            </a>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,95 @@
+<!-- <app-splash-screen /> -->
+<app-hero-slider />
+
+<!-- Filters -->
+<!-- <section class="section mt-5">
+    <app-main-filters>
+      <h3 class="filter-title" home-page>Find Your Dream Home</h3>
+    </app-main-filters>
+  </section> -->
+
+<!-- Categories  -->
+<section class="container section-spacing pb-0">
+  <app-categories />
+</section>
+
+<!-- Featured Projects -->
+<section
+  class="section-spacing"
+  pAnimateOnScroll
+  enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
+  leaveClass="animate-leave fade-out-0"
+  [threshold]="0.01"
+  [once]="true"
+  [rootMargin]="'50px 0px 0px 0px'"
+>
+  <div class="container">
+    <app-featured-units />
+  </div>
+</section>
+
+<!-- Services -->
+<section
+  class="section-spacing section-secondary"
+  pAnimateOnScroll
+  enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
+  leaveClass="animate-leave fade-out-0"
+  [threshold]="0.01"
+  [once]="true"
+  [rootMargin]="'50px 0px 0px 0px'"
+>
+  <div class="container">
+    <app-services />
+  </div>
+</section>
+
+<!-- Partners -->
+<section
+  class="section mb-5"
+  pAnimateOnScroll
+  enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
+  leaveClass="animate-leave fade-out-0"
+  [threshold]="0.01"
+  [once]="true"
+  [rootMargin]="'50px 0px 0px 0px'"
+>
+  <app-partners />
+</section>
+
+<!-- New Projects -->
+<section
+  class="section mb-5"
+  pAnimateOnScroll
+  enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
+  leaveClass="animate-leave fade-out-0"
+  [threshold]="0.01"
+  [once]="true"
+  [rootMargin]="'50px 0px 0px 0px'"
+>
+  <app-new-projects />
+</section>
+
+<!-- <section
+    class="mb-5"
+    pAnimateOnScroll
+    enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
+    leaveClass="animate-leave fade-out-0"
+    [threshold]="0.01"
+    [once]="true"
+    [rootMargin]="'50px 0px 0px 0px'"
+  >
+    <app-contact-cta />
+  </section> -->
+
+<!-- Blogs -->
+<section
+  class="section mb-5"
+  pAnimateOnScroll
+  enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
+  leaveClass="animate-leave fade-out-0"
+  [threshold]="0.01"
+  [once]="true"
+  [rootMargin]="'50px 0px 0px 0px'"
+>
+  <app-blogs />
+</section>

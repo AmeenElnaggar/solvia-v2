@@ -1,0 +1,47 @@
+::ng-deep {
+  footer.main-footer,
+  header.main-header {
+    display: none !important;
+  }
+  body {
+    padding-top: 0 !important;
+  }
+}
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  min-height: 100vh;
+  font-weight: 700;
+
+  h1 {
+    position: relative;
+    font-size: 150px;
+    color: var(--primary-color);
+  }
+
+  #silhouette {
+    color: rgba(#000, 0.15);
+  }
+
+  #wobble {
+    position: absolute;
+    transform-origin: 69% 78%;
+    top: 0;
+    right: 0;
+    animation: move 3s infinite forwards;
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: rotate(175deg);
+  }
+  50% {
+    transform: rotate(185deg);
+  }
+  100% {
+    transform: rotate(175deg);
+  }
+}

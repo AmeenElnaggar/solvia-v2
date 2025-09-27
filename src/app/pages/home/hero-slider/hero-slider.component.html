@@ -1,0 +1,36 @@
+<div class="hero-slider">
+  <swiper-container init="false" appSwiper [config]="swiperConfig">
+    @for (item of contents(); track $index) {
+    <swiper-slide>
+      <div class="hero-slide">
+        <div class="image-wrapper">
+          <img class="img-cover" [src]="item.image" [alt]="item.title_en" />
+          <div class="overlay"></div>
+        </div>
+
+        <div class="content-container">
+          <div class="hero-text-holder" [class.active]="index() === $index">
+            <div class="slide-number">{{ $index + 1 | number : '2.0' }}</div>
+            <div class="content-wrapper">
+              <span class="category-badge">FEATURED PROJECT</span>
+              <h2 class="slide-heading line-clamp-2" title="{{ item.title_en }}">
+                {{ item.title_en }}
+              </h2>
+              <div class="divider"></div>
+              <p class="slide-desc">{{ item.description_en }}</p>
+              <div class="slide-cta">
+                <app-site-button
+                  [url]="'/' + 'projects' + '/' + item.project.project_slug"
+                  icon="fa-solid fa-arrow-right"
+                  [label]="'View More'"
+                  [buttonClass]="'custom-btn'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    }
+  </swiper-container>
+</div>

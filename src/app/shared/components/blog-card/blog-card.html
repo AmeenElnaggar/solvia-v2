@@ -1,0 +1,22 @@
+@if (blog()) {
+<div class="blog-card">
+  <a routerLink="/" class="stretched-link" title="{{ blog().title }}"></a>
+  <div class="blog-card__thumbnail">
+    <img [src]="blog().image" class="blog-card__image" [alt]="blog().title" />
+  </div>
+
+  <div class="blog-card__data-section">
+    <div class="blog-card__info">
+      <div>
+        <h3 class="blog-card__title line-clamp-1">
+          {{ blog().title }}
+        </h3>
+        <div class="blog-card__details">
+          <span class="blog-card__date">{{ blog().date }}</span>
+          <p class="blog-card__location">{{ blog().location }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

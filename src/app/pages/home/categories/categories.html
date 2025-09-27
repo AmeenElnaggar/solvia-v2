@@ -1,0 +1,30 @@
+<div class="categories">
+  <div class="heading-section">
+    <h2 class="text-4xl mb-3">Try Searching For</h2>
+    <p>Thousands of luxury home enthusiasts just like you have found their dream home</p>
+  </div>
+
+  <div class="categories-container">
+    <swiper-container appSwiper init="false" [config]="swiperConfig">
+      @for (category of categories; track $index) {
+      <swiper-slide>
+        <a
+          routerLink="/"
+          class="categories-item"
+          [class.active]="activeIndex() === $index"
+          (click)="selectCategory($index)"
+        >
+          <div class="icon-box">
+            <i class="{{ category.icon }}"></i>
+          </div>
+          <h5 class="font-bold text-lg mb-1">{{ category.title }}</h5>
+          <p class="font-medium">{{ category.count }} Property</p>
+        </a>
+      </swiper-slide>
+      }
+    </swiper-container>
+
+    <!-- Pagination Bullets -->
+    <div class="categories-pagination"></div>
+  </div>
+</div>

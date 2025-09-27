@@ -1,0 +1,23 @@
+<div class="new-container">
+  <h2 class="section-title">
+    <span>Explore Latest Launches</span>
+  </h2>
+
+  <swiper-container appSwiper init="false" [config]="swiperConfig">
+    @for (project of projects; track $index) {
+    <swiper-slide>
+      <app-project-card [project]="project" />
+    </swiper-slide>
+    }
+  </swiper-container>
+
+  <div class="swiper-controllers projects-controllers">
+    <button class="prev-button">
+      <img src="assets/svg-icons/arrow-left.svg" alt="" />
+    </button>
+    <div class="swiper-pagination"></div>
+    <button class="next-button">
+      <img src="assets/svg-icons/arrow-right.svg" alt="" />
+    </button>
+  </div>
+</div>

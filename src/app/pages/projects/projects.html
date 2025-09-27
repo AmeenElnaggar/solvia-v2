@@ -1,0 +1,11 @@
+<section class="section container mt-3">
+  <app-main-filters />
+</section>
+
+<section class="section container">
+  <app-data-view [records]="projects">
+    <ng-template #viewBodyTemplate let-project>
+      <app-project-card [project]="project" />
+    </ng-template>
+  </app-data-view>
+</section>

@@ -1,0 +1,7 @@
+export const constants = {
+  PAGE_TITLE_PREFIX: 'Solvia',
+  MIN_LENGTH_TEXT_INPUT: 8,
+  MAX_LENGTH_TEXT_INPUT: 191,
+  MAX_LENGTH_TEXTAREA: 16777215,
+  DATA_LIMIT: 12,
+};
