@@ -104,7 +104,7 @@
       opacity: 1;
 
       .slide-number {
-        opacity: 1;
+        opacity: 0.5;
         transform: translateY(0) scale(1);
         transition-delay: 0.2s;
       }
@@ -147,22 +147,19 @@
 
   .slide-number {
     position: absolute;
-    top: 2px;
-    right: 10px;
+    top: 1rem;
+    inset-inline-end: 1rem;
     font-size: 60px;
     font-weight: 900;
     color: rgba(255, 255, 255, 0.1);
     line-height: 1;
     opacity: 0;
-    // padding: 5px;
     transform: translateY(30px) scale(0.8);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
 
     @media (max-width: 768px) {
       font-size: 40px;
-      right: 10px;
-      top: 0;
     }
   }
 
