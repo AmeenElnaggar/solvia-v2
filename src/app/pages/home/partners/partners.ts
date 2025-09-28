@@ -83,7 +83,7 @@ export class Partners {
     spaceBetween: 20,
     breakpoints: {
       320: {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 10,
       },
       768: {

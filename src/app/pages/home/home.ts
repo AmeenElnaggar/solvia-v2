@@ -13,6 +13,7 @@ import { ContactCta } from './contact-cta/contact-cta';
 import { Categories } from './categories/categories';
 import { UnitCard } from '../../shared/components/unit-card/unit-card';
 import { FeaturedUnits } from './featured-units/featured-units';
+import { Neighborhoods } from './neighborhoods/neighborhoods';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +30,7 @@ import { FeaturedUnits } from './featured-units/featured-units';
     ContactCta,
     Categories,
     UnitCard,
+    Neighborhoods,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',

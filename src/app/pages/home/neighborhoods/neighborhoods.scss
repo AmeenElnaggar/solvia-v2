@@ -1,0 +1,158 @@
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.neighborhoods-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.neighborhood-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  height: 320px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(4) {
+    grid-column: span 3;
+  }
+
+  &:nth-child(5) {
+    grid-column: span 3;
+  }
+
+  &:nth-child(6) {
+    grid-column: span 6;
+  }
+
+  &:nth-child(7) {
+    grid-column: span 3;
+  }
+
+  &:hover {
+    .neighborhood-card__image {
+      transform: scale(1.1);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+    transition: all 0.4s ease;
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+  }
+
+  .custom-btn {
+    i {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover i {
+      transform: translateX(5px);
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .neighborhood-card {
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      grid-column: span 6;
+    }
+
+    &:nth-child(7) {
+      grid-column: span 12;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .neighborhoods-section {
+    padding: 60px 16px;
+  }
+
+  .neighborhoods-title {
+    font-size: 2rem;
+  }
+
+  .neighborhoods-subtitle {
+    font-size: 1rem;
+  }
+
+  .neighborhoods-grid {
+    gap: 16px;
+  }
+
+  .neighborhood-card {
+    height: 280px;
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__info {
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .neighborhood-card {
+    height: 240px;
+
+    &__content {
+      padding: 20px;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+    }
+  }
+}

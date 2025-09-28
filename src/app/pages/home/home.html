@@ -1,4 +1,4 @@
-<!-- <app-splash-screen /> -->
+<app-splash-screen />
 <app-hero-slider />
 
 <!-- Filters -->
@@ -9,7 +9,15 @@
   </section> -->
 
 <!-- Categories  -->
-<section class="container section-spacing pb-0">
+<section
+  class="container section-spacing pb-0"
+  pAnimateOnScroll
+  enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
+  leaveClass="animate-leave fade-out-0"
+  [threshold]="0.01"
+  [once]="true"
+  [rootMargin]="'50px 0px 0px 0px'"
+>
   <app-categories />
 </section>
 
@@ -43,9 +51,9 @@
   </div>
 </section>
 
-<!-- Partners -->
+<!-- Neighborhoods -->
 <section
-  class="section mb-5"
+  class="section-spacing pb-0"
   pAnimateOnScroll
   enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
   leaveClass="animate-leave fade-out-0"
@@ -53,12 +61,14 @@
   [once]="true"
   [rootMargin]="'50px 0px 0px 0px'"
 >
-  <app-partners />
+  <div class="container xl">
+    <app-neighborhoods />
+  </div>
 </section>
 
 <!-- New Projects -->
 <section
-  class="section mb-5"
+  class="section-spacing"
   pAnimateOnScroll
   enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
   leaveClass="animate-leave fade-out-0"
@@ -66,7 +76,24 @@
   [once]="true"
   [rootMargin]="'50px 0px 0px 0px'"
 >
-  <app-new-projects />
+  <div class="container">
+    <app-new-projects />
+  </div>
+</section>
+
+<!-- Partners -->
+<section
+  class="section-spacing section-secondary pb-0"
+  pAnimateOnScroll
+  enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
+  leaveClass="animate-leave fade-out-0"
+  [threshold]="0.01"
+  [once]="true"
+  [rootMargin]="'50px 0px 0px 0px'"
+>
+  <div class="container">
+    <app-partners />
+  </div>
 </section>
 
 <!-- <section
@@ -83,7 +110,7 @@
 
 <!-- Blogs -->
 <section
-  class="section mb-5"
+  class="section-spacing"
   pAnimateOnScroll
   enterClass="animate-enter fade-in-10 slide-in-from-b-8 animate-duration-1000 custom-slide"
   leaveClass="animate-leave fade-out-0"
@@ -91,5 +118,7 @@
   [once]="true"
   [rootMargin]="'50px 0px 0px 0px'"
 >
-  <app-blogs />
+  <div class="container">
+    <app-blogs />
+  </div>
 </section>

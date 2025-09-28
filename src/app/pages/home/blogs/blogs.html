@@ -1,5 +1,8 @@
 <div class="blogs-container">
-  <h2 class="section-title">Discover inspiration and trends</h2>
+  <div class="section-header">
+    <h2 class="text-4xl mb-3">Insight & Opinion</h2>
+    <p>Explore articles, tips, and opinions shaping today’s real estate market.</p>
+  </div>
 
   <swiper-container appSwiper init="false" [config]="swiperConfig">
     @for (blog of blogs; track $index) {

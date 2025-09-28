@@ -1,18 +1,23 @@
-<div class="partners-container">
-  <h2 class="section-title">Partners</h2>
+<section class="partners-section">
+  <div class="partners-container">
+    <div class="section-header">
+      <h2 class="text-4xl mb-3">Our Partners</h2>
+      <p>Thousands of luxury home enthusiasts just like you visit our website.</p>
+    </div>
 
-  <swiper-container appSwiper init="false" [config]="swiperConfig">
-    @for (partner of partners; track $index) {
-    <swiper-slide>
-      <div class="partner">
-        <div class="partner-img">
-          <img [src]="partner.logo" alt="partner logo" />
+    <swiper-container appSwiper init="false" [config]="swiperConfig">
+      @for (partner of partners; track $index) {
+      <swiper-slide>
+        <div class="partner">
+          <div class="partner-img-wrapper">
+            <div class="partner-img">
+              <img [src]="partner.logo" [alt]="partner.name + ' logo'" />
+            </div>
+          </div>
+          <p class="partner-title">{{ partner.name }}</p>
         </div>
-        <p class="partner-title">
-          {{ partner.name }}
-        </p>
-      </div>
-    </swiper-slide>
-    }
-  </swiper-container>
-</div>
+      </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+</section>

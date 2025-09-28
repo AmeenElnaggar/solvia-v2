@@ -1,7 +1,8 @@
 <div class="new-container">
-  <h2 class="section-title">
-    <span>Explore Latest Launches</span>
-  </h2>
+  <div class="section-header">
+    <h2 class="text-4xl mb-3">Explore Latest Launches</h2>
+    <p>Thousands of buyers and investors explore our latest real estate projects daily.</p>
+  </div>
 
   <swiper-container appSwiper init="false" [config]="swiperConfig">
     @for (project of projects; track $index) {

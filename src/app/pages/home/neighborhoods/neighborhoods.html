@@ -1,0 +1,31 @@
+<section class="neighborhoods-section">
+  <div class="neighborhoods-container">
+    <!-- Header -->
+    <div class="section-header">
+      <h2 class="text-4xl mb-3">Explore The Neighborhoods</h2>
+      <p>Find your dream apartment with our listing</p>
+    </div>
+
+    <!-- Grid -->
+    <div class="neighborhoods-grid">
+      @for (neighborhood of neighborhoods; track neighborhood.title + $index) {
+      <div class="neighborhood-card" [class.card-wide]="$index === 4">
+        <img
+          [src]="neighborhood.image"
+          [alt]="neighborhood.title"
+          class="neighborhood-card__image"
+        />
+        <div class="neighborhood-card__overlay"></div>
+        <div class="neighborhood-card__content">
+          <h3 class="neighborhood-card__title">{{ neighborhood.title }}</h3>
+          <a class="custom-btn"
+            >{{ neighborhood.num | number }}
+            <span>properties</span>
+            <i class="pi pi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

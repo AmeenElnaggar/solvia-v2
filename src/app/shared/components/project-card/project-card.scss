@@ -32,7 +32,7 @@
     &-background {
       height: 60px;
       width: 60px;
-      background: var(--section-bg-color);
+      background: var(--primary-color);
       border-bottom-left-radius: 30px;
     }
 
@@ -73,7 +73,7 @@
     &-top-left {
       height: 30px;
       width: 30px;
-      background: var(--section-bg-color);
+      background: var(--primary-color);
       position: absolute;
       left: -30px;
       top: 0px;
@@ -84,7 +84,7 @@
     &-bottom-right {
       width: 30px;
       height: 30px;
-      background: var(--section-bg-color);
+      background: var(--primary-color);
       position: absolute;
       right: 0px;
       bottom: -30px;

@@ -1,4 +1,5 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
+import { Component, signal, NO_ERRORS_SCHEMA } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface ServiceItem {
   id: number;
@@ -12,45 +13,15 @@ interface ServiceItem {
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class ServicesComponent {
-  private servicesData = signal<ServiceItem[]>([
-    {
-      id: 1,
-      title: 'Buy Property',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      icon: 'fas fa-home',
-      cssClass: 'service-light',
-      iconClass: 'icon-light',
-    },
-    {
-      id: 2,
-      title: 'Sell Property',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      icon: 'fas fa-shield-alt',
-      cssClass: 'service-dark',
-      iconClass: 'icon-dark',
-    },
-    {
-      id: 3,
-      title: 'Investment Advice',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      icon: 'fas fa-dollar-sign',
-      cssClass: 'service-light',
-      iconClass: 'icon-light',
-    },
-    {
-      id: 4,
-      title: 'Rental Service',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      icon: 'fas fa-building',
-      cssClass: 'service-accent',
-      iconClass: 'icon-accent',
-    },
-  ]);
+  activeTab = signal<'Buying' | 'Rating' | 'Selling'>('Buying');
 
-  services = computed(() => this.servicesData());
+  setActive(tab: 'Buying' | 'Rating' | 'Selling') {
+    this.activeTab.set(tab);
+  }
 }
