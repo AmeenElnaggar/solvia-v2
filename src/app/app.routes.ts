@@ -18,12 +18,9 @@ export const routes: Routes = [
     title: 'Projects',
   },
   {
-    path: 'projects/:project_slug',
+    path: 'projects/project-details',
     loadComponent: () => import('./pages/project-details/project-details'),
     title: 'Project-Details',
-    data: {
-      renderMode: 'server',
-    },
   },
   {
     path: 'thanks',
