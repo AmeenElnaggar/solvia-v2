@@ -18,6 +18,11 @@ export const routes: Routes = [
     title: 'Projects',
   },
   {
+    path: 'projects/:project_slug',
+    loadComponent: () => import('./pages/project-details/project-details'),
+    title: 'Project-Details',
+  },
+  {
     path: 'thanks',
     loadComponent: () => import('./shared/components/thank/thank.component'),
     title: 'thanks',

@@ -1,9 +1,13 @@
 @if (project()) {
 <div class="project-card">
-  <a routerLink="/" class="stretched-link" title="{{ project().title }}"></a>
+  <a
+    [routerLink]="['/projects', project().title]"
+    class="stretched-link"
+    title="{{ project().title }}"
+  ></a>
   <div class="project-card__corner">
     <div class="project-card__corner-btn">
-      <a class="arrow-btn" routerLink="/" title="More details">
+      <a class="arrow-btn" [routerLink]="['/projects', project().title]" title="More details">
         <svg width="20" viewBox="0 0 24 24">
           <path
             fill="none"

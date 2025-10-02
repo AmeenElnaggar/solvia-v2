@@ -1,1 +1,314 @@
-<p>project-details works!</p>
+@if (project()) {
+<!-- Breadcrumb Navigation -->
+<nav class="breadcrumb container lg" aria-label="Breadcrumb">
+  <ul class="list-none flex align-items-center">
+    <li class="breadcrumb__item">Projects</li>
+    <li class="breadcrumb__separator">
+      <i class="pi pi-angle-right"></i>
+    </li>
+    <li class="breadcrumb__item breadcrumb__item--active">
+      {{ project().title_en }}
+    </li>
+  </ul>
+</nav>
+
+<section class="project-hero container lg">
+  <!-- Gallery and Info  -->
+  <div class="grid">
+    <!-- Left Side - Swiper Gallery -->
+    <div class="gallery-section col-12 lg:col-7">
+      <!-- Main Swiper -->
+      <swiper-container
+        class="main-swiper"
+        appSwiper
+        [config]="mainSwiperConfig()"
+        thumbs-swiper=".thumb-swiper"
+        navigation="true"
+        space-between="10"
+      >
+        @for (image of project().gallery_images; track image; let i = $index) {
+        <swiper-slide>
+          <img [src]="image" [alt]="'Gallery image ' + (i + 1)" />
+        </swiper-slide>
+        }
+      </swiper-container>
+
+      <!-- Thumbnail Swiper with Camera Icon -->
+      <div class="thumbnail-container">
+        <swiper-container
+          class="thumb-swiper"
+          appSwiper
+          [config]="thumbSwiperConfig()"
+          space-between="10"
+          slides-per-view="4"
+          free-mode="true"
+          watch-slides-progress="true"
+        >
+          @for (image of project().gallery_images; track image; let i = $index) {
+          <swiper-slide>
+            <img [src]="image" [alt]="'Thumbnail ' + (i + 1)" />
+          </swiper-slide>
+          }
+        </swiper-container>
+      </div>
+    </div>
+
+    <!-- Right Side - Project Info -->
+    <div class="info-section col-12 lg:col-5">
+      <h1 class="project-title">{{ project().title_en }}</h1>
+
+      <p class="project-description">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id risus est. Ut efficitur
+        dignissim ante, nec bibendum odio ullamcorper ut. Vivamus condimentum gravida condimentum.
+        Aliquam placerat pharetra cursus. Maecenas malesuada ultrices rhoncus. Aenean ornare
+        scelerisque venenatis.
+      </p>
+
+      <div class="price-section">
+        <span class="price">${{ project().project_price!.toLocaleString() }}</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span class="info-label">Type</span>
+        <span class="info-value">
+          @for (purpose of project().purposes; track purpose.id) {
+          {{ purpose.name_en }}@if (!$last) {, } }
+        </span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span class="info-label">Status</span>
+        <span class="info-value">Finish</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span class="info-label">Location</span>
+        <span class="info-value">{{ project().address_en }}</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="info-row">
+        <span class="info-label">Year</span>
+        <span class="info-value">2024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-layout container lg section-spacing pb-0">
+  <div class="grid">
+    <!-- Left Side - Project Data -->
+    <div class="col-12 lg:col-6">
+      <div class="info-section">
+        <h1 class="project-title">Project layout</h1>
+
+        <p class="project-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id risus est. Ut efficitur
+          dignissim ante, nec bibendum odio ullamcorper ut. Vivamus condimentum gravida condimentum.
+          Aliquam placerat pharetra cursus. Maecenas malesuada ultrices rhoncus. Aenean ornare
+          scelerisque venenatis.
+        </p>
+
+        <!-- Main Stats Row -->
+        <div class="stats-row">
+          <div class="stat-item stat-item--primary">
+            <div class="stat-number">5</div>
+            <div class="stat-label">
+              <i class="pi pi-home"></i>
+              Beds
+            </div>
+          </div>
+
+          <div class="stat-item stat-item--primary">
+            <div class="stat-number">12</div>
+            <div class="stat-label"><i class="fa-solid fa-bath"></i> Baths</div>
+          </div>
+
+          <div class="stat-item stat-item--primary">
+            <div class="stat-number">1450</div>
+            <div class="stat-label">
+              <i class="pi pi-expand"></i>
+              sqft
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Details -->
+        <div class="details-list">
+          <div class="detail-row">
+            <span class="detail-label">Floors</span>
+            <span class="detail-value">{{ 2 }}</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Garage</span>
+            <span class="detail-value">{{ 2 }}</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Pool</span>
+            <span class="detail-value">{{ 2 }}</span>
+          </div>
+
+          <div class="detail-row">
+            <span class="detail-label">Garden</span>
+            <span class="detail-value">{{ 5000 }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right Side - Plan Images Swiper -->
+    <div class="col-12 lg:col-6">
+      <div class="plan-slider">
+        <div class="masterplan-header">
+          <h2 class="masterplan-title">Master Plan</h2>
+          <p class="masterplan-subtitle">
+            Discover the thoughtfully designed layout that blends modern living with green spaces.
+          </p>
+        </div>
+
+        <div class="plan-swiper-container">
+          <swiper-container
+            class="plan-swiper"
+            appSwiper
+            [config]="planSwiperConfig()"
+            navigation="true"
+            pagination="true"
+          >
+            @for (plan of planData(); track plan.floor) {
+            <swiper-slide>
+              <div class="plan-image-container">
+                <img [src]="plan.image" [alt]="plan.floor + ' floor plan'" loading="lazy" />
+              </div>
+            </swiper-slide>
+            }
+          </swiper-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-video container lg section-spacing pb-0">
+  <div
+    class="video-section__img"
+    [style.background-image]="'url(' + project().gallery_images![0] + ')'"
+  >
+    <div class="video-section__overlay"></div>
+
+    <div class="video-section__content">
+      <h1 class="video-section__title">{{ project().title_en }}</h1>
+      <p class="video-section__description">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+
+      <button class="video-section__play-btn" (click)="openVideoDialog()" aria-label="Play video">
+        <svg class="play-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 5.14v13.72L19 12L8 5.14z" fill="currentColor" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="section-spacing pb-0">
+  <div class="project-amenities container lg">
+    <h2 class="project-title text-center py-1">Project Amenities</h2>
+    <div>
+      <swiper-container appSwiper init="false" [config]="amenitiesSwiperConfig">
+        @for (amenity of amenities; track $index) {
+        <swiper-slide>
+          <a routerLink="/" class="amenities-item">
+            <div class="icon-box">
+              <i class="{{ amenity.icon }}"></i>
+            </div>
+            <h5 class="font-bold text-lg mb-0 mt-0">{{ amenity.title }}</h5>
+            <div class="divider"></div>
+            <p class="font-medium">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, nisi!
+            </p>
+          </a>
+        </swiper-slide>
+        }
+      </swiper-container>
+
+      <div class="swiper-controllers projects-controllers">
+        <button class="prev-button">
+          <img src="assets/svg-icons/arrow-left.svg" alt="" />
+        </button>
+        <div class="swiper-pagination"></div>
+        <button class="next-button">
+          <img src="assets/svg-icons/arrow-right.svg" alt="" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-location container lg section-spacing">
+  <div class="grid">
+    <div class="col-12 lg:col-6">
+      <div class="info-section">
+        <!-- Address Section -->
+        <div class="address-section">
+          <h3 class="section-label">address</h3>
+          <div class="address-text">
+            <div class="address-line">{{ locationData().address }}</div>
+            <div class="address-line">{{ locationData().city }}, {{ locationData().state }}</div>
+            <div class="address-line">{{ locationData().zipCode }}</div>
+          </div>
+        </div>
+        <!-- Key Transport Section -->
+        <div class="transport-section">
+          <h3 class="section-label">Key transport</h3>
+          <div class="transport-grid">
+            @for (pair of getTransportPairs(); track pair.left.key) {
+            <div class="transport-row">
+              <div class="transport-item">
+                <span class="transport-name">{{ pair.left.name }}</span>
+                <span class="transport-distance">{{ pair.left.distance }}</span>
+              </div>
+              @if (pair.right) {
+              <div class="transport-item">
+                <span class="transport-name">{{ pair.right.name }}</span>
+                <span class="transport-distance">{{ pair.right.distance }}</span>
+              </div>
+              }
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 lg:col-6">
+      <div class="location-section">
+        <iframe [src]="mapUrl | noSanitize : 'resourceUrl'" loading="lazy" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+}
+
+<!-- Video Dialog -->
+<p-dialog
+  appendTo="body"
+  [header]="project().title_en"
+  [modal]="true"
+  [(visible)]="displayVideo"
+  position="top"
+  styleClass="video-dialog"
+  [style]="{ width: '70vw' }"
+>
+  <div class="video-container">
+    <div class="iframe" [innerHTML]="project().video_iframe! | noSanitize : 'html'"></div>
+  </div>
+</p-dialog>
