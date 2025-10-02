@@ -14,8 +14,6 @@ import { MessageService } from 'primeng/api';
 })
 export class App {
   ngOnInit() {
-    window.onbeforeunload = () => {
-      window.scrollTo(0, 0);
-    };
+    window.scroll({ top: 0, behavior: 'smooth' });
   }
 }
